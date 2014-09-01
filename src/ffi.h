@@ -29,8 +29,8 @@ using namespace node;
  * Converts an arbitrary pointer to a node Buffer with 0-length
  */
 
-Local<Object> WrapPointer(char *);
-Local<Object> WrapPointer(char *, size_t length);
+Handle<Value> WrapPointer(char *);
+Handle<Value> WrapPointer(char *, size_t length);
 
 /*
  * Class used to store stuff during async ffi_call() invokations.
@@ -55,7 +55,7 @@ class AsyncCallWorker : public NanAsyncWorker {
     
     virtual void Execute();
     virtual void HandleOKCallback();
-    
+  
   private:
     AsyncCallParams* params;
 };
